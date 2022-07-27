@@ -17,6 +17,16 @@ class Movie {
     function poster() {
         echo 'poster';
     }
+
+    function get_info() {
+        if($this->title === 'Inception') {
+            return 'Dom Cobb possiede una qualifica speciale: è in grado di inserirsi nei sogni altrui per prelevare i segreti nascosti nel più profondo del subconscio. Viene contattato da Saito, un potentissimo industriale giapponese.';
+        } elseif($this->title === 'The Social Network') {
+            return 'Pochi anni dopo aver creato Facebook nella sua stanza del dormitorio di Harvard, Mark Zuckerberg è diventato un miliardario, ma il suo grande successo sta portando a problemi sia personali sia legali.';
+        } else {
+            return '';
+        }
+    }
 } 
 
 $inception = new Movie('Inception', 'Christopher Nolan', '2010', '2h 28m', "https://m.media-amazon.com/images/I/91Rc8cAmnAL._AC_SY679_.jpg");
@@ -37,14 +47,16 @@ $network = new Movie('The Social Network', 'David Fincher', '2010', '2h', "https
         <div class="film">
             <img src="<?php echo $inception->image ?>" alt="<?php echo $inception->title ?> <?php $inception->poster() ?>">
             <h2><?php echo $inception->title ?></h2>
-            <div><?php echo $inception->year ?></h2> , <?php echo $inception->length ?></h2></div>
+            <div><?php echo $inception->year ?></h2> - <?php echo $inception->length ?></h2></div>
             <h4><?php echo $inception->director ?></h2></h4>
+            <p><?php echo $inception->get_info() ?></p>
         </div>
         <div class="film">
             <img src="<?php echo $network->image ?>" alt="<?php echo $network->title ?> <?php $network->poster() ?>">
             <h2><?php echo $network->title ?></h2>
-            <div><?php echo $network->year ?></h2> , <?php echo $network->length ?></h2></div>
+            <div><?php echo $network->year ?></h2> - <?php echo $network->length ?></h2></div>
             <h4><?php echo $network->director ?></h2></h4>
+            <p><?php echo $network->get_info() ?></p>
         </div>
     </div>
     </div>
